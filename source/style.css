@@ -1,0 +1,82 @@
+body {
+  background: #f4f3f3;
+}
+form {
+  text-align: center;
+  margin: 19px;
+  font-size: 26px;
+}
+input {
+  opacity: 0.7;
+  padding: 3px 16px;
+  height: 50px;
+  padding-top: 3px;
+  padding-bottom: 7px;
+}
+h1 {
+  font-family: "Nunito", sans-serif;
+  font-size: 50px;
+  margin: -75px 0px 18px 0;
+  font-weight: 600;
+}
+h2 {
+  font-size: 25px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+}
+h3,
+h4 {
+  font-size: 20px;
+  font-weight: 550;
+  font-family: "Nunito", sans-serif;
+}
+a {
+  text-decoration: none;
+}
+.unit {
+  text-size: 10px;
+}
+.list-group-item {
+  background-color: #f4f3f3;
+}
+.card-left {
+  text-align: center;
+  padding: 100px 13px;
+}
+.left {
+  font-family: "Raleway", sans-serif;
+}
+.emoji-left {
+  font-size: 40px;
+}
+.celsius-left {
+  font-size: 37px;
+  padding: 0 0 20px 0;
+}
+.extra-left {
+  font-weight: 900;
+  font-size: 20px;
+}
+.fahrenheit-left {
+  opacity: 0.5;
+  font-size: 37px;
+}
+.card-right {
+  text-align: center;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  width: fit-content;
+  margin: auto;
+}
+.fahrenheit-right {
+  opacity: 0.7;
+  font-size: 15px;
+}
+.day,
+.emoji-right {
+  font-size: 20px;
+  font-weight: bold;
+}
+.dayMonth {
+  font-size: 15px;
+}
