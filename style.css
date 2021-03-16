@@ -33,6 +33,9 @@ h4 {
 a {
   text-decoration: none;
 }
+.col{
+  height: 503px;
+}
 .unit {
   text-size: 10px;
 }
@@ -79,4 +82,8 @@ a {
 }
 .dayMonth {
   font-size: 15px;
+}
+.codedBy{
+  text-align: center;
+  opacity: 0.7;
 }
