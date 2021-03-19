@@ -33,10 +33,12 @@ h4 {
 a {
   text-decoration: none;
 }
+.city::first-letter{
+  text-transform: capitalize;
+}
 .col{
   height: 503px;
 }
-
 .list-group-item {
   background-color: #f4f3f3;
 }
