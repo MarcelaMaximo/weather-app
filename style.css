@@ -1,5 +1,5 @@
 body {
-  background: #f4f3f3;
+  margin: 5px;
 }
 form {
   text-align: center;
@@ -16,13 +16,15 @@ input {
 h1 {
   font-family: "Nunito", sans-serif;
   font-size: 50px;
-  margin: -75px 0px 18px 0;
   font-weight: 600;
+  padding: 0;
+  line-height: 0.7;
 }
 h2 {
-  font-size: 25px;
+  font-size: 23px;
   font-family: "Nunito", sans-serif;
   font-weight: 700;
+  margin-top: 20px;
 }
 h3,
 h4 {
@@ -32,40 +34,51 @@ h4 {
 }
 a {
   text-decoration: none;
-}
-.city,
-.virgula {
-  font-size: 38px;
-}
-.city::first-letter {
-  text-transform: capitalize;
-}
-.country {
-  font-size: 17px;
-}
-.col {
-  height: 503px;
-}
-.list-group-item {
-  background-color: #f4f3f3;
-}
-.card-left {
-  text-align: center;
-  padding: 100px 13px;
-}
-.left {
-  font-family: "Raleway", sans-serif;
+  color: white;
 }
 img {
   height: 70px;
 }
+i,
+.emoji-left {
+  color: white;
+}
+.container {
+  overflow: hidden;
+  background-color: #0093e9;
+  background-image: linear-gradient(180deg, #0093e9 0%, #80d0c7 100%);
+  width: fit-content;
+  border-radius: 6%;
+}
+.city,
+.comma {
+  font-size: 25px;
+}
+.city::first-letter {
+  text-transform: capitalize;
+  font-size: 20px;
+}
+.country {
+  font-size: 17px;
+}
+.list-group-item {
+  background-color: transparent;
+}
+.card-left {
+  text-align: center;
+}
+.left {
+  font-family: "Raleway", sans-serif;
+  line-height: 2;
+}
+
 .celsius-left {
   font-size: 37px;
-  padding: 0 0 20px 0;
+  width: max-content;
 }
+
 .extra-left {
-  font-weight: 900;
-  font-size: 20px;
+  font-size: 16px;
 }
 .fahrenheit-left {
   opacity: 0.5;
@@ -94,4 +107,13 @@ img {
   text-align: center;
   opacity: 0.7;
   font-size: 13px;
+}
+.humidityimg {
+  height: 20px;
+  width: 20px;
+}
+.unit,
+.bar {
+  font-size: 18px;
+  color: white;
 }

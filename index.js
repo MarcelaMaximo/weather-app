@@ -91,21 +91,26 @@ CitySearch.addEventListener("submit", Country);
 //location
 
 function showWeather(response) {
+
+  console.log(response.data.main);
   document.querySelector("#country").innerHTML = response.data.sys.country;
 
-  document.querySelector("#temperature").innerHTML = Math.round(
-    response.data.main.temp
-  );
+  document.querySelector("#temperature").innerHTML = Math.round(response.data.main.temp);
 
   document.querySelector("#city").innerHTML = response.data.name;
 
-  document.querySelector("#wind").innerHTML = Math.round(
-    response.data.wind.speed
-  );
+  document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
 
-  document.querySelector("#humidity").innerHTML = Math.round(
-    response.data.main.humidity
-  );
+  document.querySelector("#humidity").innerHTML = Math.round(response.data.main.humidity);
+  
+  document.querySelector("#Max").innerHTML = Math.round(response.data.main.temp_max);
+  
+  document.querySelector("#Min").innerHTML = Math.round(response.data.main.temp_min);
+  //let iconElement = document.querySelector("#imgleft");
+  //iconElement.getAttribute (
+  //  "src", 
+  // `http://openweathermap.org/img/wn/${emoji}@2x.png`);
+
 }
 
 function handleSubmit(event) {

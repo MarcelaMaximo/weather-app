@@ -24,12 +24,11 @@
       <input type="submit" value="🔍" class="btn btn-outline-info btn-lg" />
       <button type="submit" class="btn btn-outline-success btn-lg" id="CurrentButton">Current</button>
     </form>
-    <div class="row">
-      <div class="col"></div>
-      <div class="col">
+    <div class="row justify-content-center">
+       <div class="col-4">
         <div class="card-left">
           <h1>
-            <span class="city" id="city">Lisbon</span><span class="virgula">, </span> <span class="country" id="country">PT</span>
+            <span class="city" id="city">Lisbon</span><span class="comma">, </span> <span class="country" id="country">PT</span>
           </h1>
           <h2>
             Thursdays
@@ -44,32 +43,27 @@
             <img 
             src="https://icons-for-free.com/iconfiles/png/512/sun+sunny+weather+icon-1320196635525068067.png"
             alt="Cloudy"
+            id="imgleft"
             class="emoji-left"/>
             <span id="temperature">15</span>
-            <a href="#" class=unit id="c-link">°C</a> |
+            <a href="#" class=unit id="c-link">°C  </a> <span class="bar"> | </span>
             <a href="#" class=unit id="f-link">°F</a>
           </div>
-          </br>
+        </br>
           <div class="extra left">
-            <span class="extra-left"> Precipitation: </span>
-            <span id="Precipitation">65</span>%
-            </br>
-            <span class="extra-left" id="Wind">Wind: </span>
-            <span id="wind"> 3</span> km/h
-            </br>
-            <span class="extra-left">Humidity: </span>
-            <span id="humidity"> 45</span>%
-            </br>
-            <span class="extra-left" id="Sunrise">Sunrise: </span>
-            <span id="Sunrise"> 5</span>h
-            </br>
-            <span class="extra-left" id="Sunset">Sunset:</span>
-            <span id="Sunset"> 19</span>h
-            </br>
+            <div><i class="fas fa-arrow-up">  </i><span  class="Max" id="Max"> 7</span>°C </div>
+            <div><i class="fas fa-arrow-down"> </i><span class="Min" id="Min"> 9</span>°C</div>
+            <div class="extra-left"> <i class="fas fa-tint"></i> 
+              <span id="Precipitation">65</span>% </div>   
+            <div class="extra-left" id="Wind"><i class="fas fa-wind"></i>
+              <span id="wind"> 3</span> km/h</div>
+            <div class="extra-left" id="Humidity"> <img class="humidityimg"
+              src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiIGNsYXNzPSIiPjxnIHRyYW5zZm9ybT0ibWF0cml4KDEsMCwwLDEsNSwwKSI+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+Cgk8Zz4KCQk8cGF0aCBkPSJNMzQ0Ljg2NCwxMTIuODMyYy0yNi4xNzYtMzMuNDA4LTUzLjI0OC02Ny45MDQtNzUuMDcyLTEwNC45NkMyNjYuOTEyLDMuMDA4LDI2MS42NjQsMCwyNTYsMHMtMTAuOTEyLDMuMDA4LTEzLjc2LDcuODcyICAgIGMtMjEuODI0LDM3LjAyNC00OC44OTYsNzEuNTUyLTc1LjA3MiwxMDQuOTI4QzExNC4xMTIsMTgwLjQ0OCw2NCwyNDQuMzUyLDY0LDMyMGMwLDEwNS44ODgsODYuMTEyLDE5MiwxOTIsMTkyICAgIHMxOTItODYuMTEyLDE5Mi0xOTJDNDQ4LDI0NC4zODQsMzk3LjkyLDE4MC40OCwzNDQuODY0LDExMi44MzJ6IE0yNTYsNDgwYy04OC4yMjQsMC0xNjAtNzEuNzc2LTE2MC0xNjAgICAgYzAtNjQuNjA4LDQ2Ljc4NC0xMjQuMjU2LDk2LjM1Mi0xODcuNDU2YzIxLjYzMi0yNy41ODQsNDMuODQtNTUuOTA0LDYzLjY0OC04Ni4yNGMxOS44MDgsMzAuMzM2LDQyLjAxNiw1OC42ODgsNjMuNjQ4LDg2LjI3MiAgICBDMzY5LjIxNiwxOTUuNzQ0LDQxNiwyNTUuNDI0LDQxNiwzMjBDNDE2LDQwOC4yMjQsMzQ0LjIyNCw0ODAsMjU2LDQ4MHoiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvcGF0aD4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTIwOCwxOTJjLTI2LjQ2NCwwLTQ4LDIxLjUzNi00OCw0OHMyMS41MzYsNDgsNDgsNDhzNDgtMjEuNTM2LDQ4LTQ4UzIzNC40NjQsMTkyLDIwOCwxOTJ6IE0yMDgsMjU2ICAgIGMtOC44MzIsMC0xNi03LjE2OC0xNi0xNmMwLTguODMyLDcuMTY4LTE2LDE2LTE2YzguODMyLDAsMTYsNy4xNjgsMTYsMTZDMjI0LDI0OC44MzIsMjE2LjgzMiwyNTYsMjA4LDI1NnoiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvcGF0aD4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTMwNCwzNTJjLTI2LjQ2NCwwLTQ4LDIxLjUzNi00OCw0OHMyMS41MzYsNDgsNDgsNDhzNDgtMjEuNTM2LDQ4LTQ4UzMzMC40NjQsMzUyLDMwNCwzNTJ6IE0zMDQsNDE2Yy04LjgsMC0xNi03LjItMTYtMTYgICAgczcuMi0xNiwxNi0xNnMxNiw3LjIsMTYsMTZTMzEyLjgsNDE2LDMwNCw0MTZ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIiBjbGFzcz0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwYXRoIGQ9Ik0zNDcuMjk2LDIyOC43MDRjLTYuMjQtNi4yNC0xNi4zODQtNi4yNC0yMi42MjQsMGwtMTYwLDE2MGMtNi4yNCw2LjI0LTYuMjQsMTYuMzg0LDAsMjIuNjI0ICAgIEMxNjcuODA4LDQxNC40MzIsMTcxLjkwNCw0MTYsMTc2LDQxNnM4LjE5Mi0xLjU2OCwxMS4yOTYtNC42NzJsMTYwLTE2MEMzNTMuNTM2LDI0NS4wODgsMzUzLjUzNiwyMzQuOTQ0LDM0Ny4yOTYsMjI4LjcwNHoiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvcGF0aD4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8L2c+PC9zdmc+" />
+              <span id="humidity"> 45</span>%</div>
           </div>
         </div>
       </div>
-      <div class="col">
+      <div class="col-4">
         <div class="card-right">
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
@@ -150,8 +144,7 @@
           </ul>
         </div>
       </div>
-      <div class="col"></div>
-    </div>
+      </div>
     <footer class="codedBy">
       <a class="link" href="https://github.com/MarcelaMaximo/weather-app">Open-source code 
       </a> 
