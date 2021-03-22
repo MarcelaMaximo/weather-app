@@ -33,10 +33,17 @@ h4 {
 a {
   text-decoration: none;
 }
-.city::first-letter{
+.city,
+.virgula {
+  font-size: 38px;
+}
+.city::first-letter {
   text-transform: capitalize;
 }
-.col{
+.country {
+  font-size: 17px;
+}
+.col {
   height: 503px;
 }
 .list-group-item {
@@ -49,8 +56,8 @@ a {
 .left {
   font-family: "Raleway", sans-serif;
 }
-.emoji-left {
-  font-size: 40px;
+img {
+  height: 70px;
 }
 .celsius-left {
   font-size: 37px;
@@ -83,7 +90,7 @@ a {
 .dayMonth {
   font-size: 15px;
 }
-.codedBy{
+.codedBy {
   text-align: center;
   opacity: 0.7;
   font-size: 13px;
