@@ -71,7 +71,15 @@ i,
   font-family: "Raleway", sans-serif;
   line-height: 2;
 }
-
+.btn-outline-success {
+  color: #15587a;
+  border-color: #15587a;
+}
+.btn-outline-success:hover {
+  color: #fff;
+  background-color: #15587a;
+  border-color: #15587a;
+}
 .celsius-left {
   font-size: 37px;
   width: max-content;

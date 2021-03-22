@@ -88,11 +88,12 @@ function Country(event) {
 let CitySearch = document.querySelector("#search-form");
 CitySearch.addEventListener("submit", Country);
 
+console.log(CitySearch);
 //location
 
 function showWeather(response) {
 
-  console.log(response.data.main);
+
   document.querySelector("#country").innerHTML = response.data.sys.country;
 
   document.querySelector("#temperature").innerHTML = Math.round(response.data.main.temp);
