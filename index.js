@@ -93,7 +93,7 @@ CitySearch.addEventListener("submit", Country);
 
 function showWeather(response) {
 
-
+  console.log(response.data);
   let countryElement = document.querySelector("#country");
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
@@ -101,15 +101,19 @@ function showWeather(response) {
   let windElement = document.querySelector("#wind");
   let MaxElement = document.querySelector("#Max");
   let MinElement = document.querySelector("#Min");
+  let iconElement = document.querySelector("#icon");
 
-
-  countryElement.innerHTML= response.data.sys.country;
+  countryElement.innerHTML= (response.data.sys.country);
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
-  cityElement.innerHTML = response.data.name;
+  cityElement.innerHTML = `${response.data.name},`;
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
   MaxElement.innerHTML = Math.round(response.data.main.temp_max);
   MinElement.innerHTML = Math.round(response.data.main.temp_min);
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 
 }
 
