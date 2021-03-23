@@ -88,29 +88,28 @@ function Country(event) {
 let CitySearch = document.querySelector("#search-form");
 CitySearch.addEventListener("submit", Country);
 
-console.log(CitySearch);
+
 //location
 
 function showWeather(response) {
 
 
-  document.querySelector("#country").innerHTML = response.data.sys.country;
+  let countryElement = document.querySelector("#country");
+  let temperatureElement = document.querySelector("#temperature");
+  let cityElement = document.querySelector("#city");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
+  let MaxElement = document.querySelector("#Max");
+  let MinElement = document.querySelector("#Min");
 
-  document.querySelector("#temperature").innerHTML = Math.round(response.data.main.temp);
 
-  document.querySelector("#city").innerHTML = response.data.name;
-
-  document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
-
-  document.querySelector("#humidity").innerHTML = Math.round(response.data.main.humidity);
-  
-  document.querySelector("#Max").innerHTML = Math.round(response.data.main.temp_max);
-  
-  document.querySelector("#Min").innerHTML = Math.round(response.data.main.temp_min);
-  //let iconElement = document.querySelector("#imgleft");
-  //iconElement.getAttribute (
-  //  "src", 
-  // `http://openweathermap.org/img/wn/${emoji}@2x.png`);
+  countryElement.innerHTML= response.data.sys.country;
+  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  cityElement.innerHTML = response.data.name;
+  humidityElement.innerHTML = response.data.main.humidity;
+  windElement.innerHTML = Math.round(response.data.wind.speed);
+  MaxElement.innerHTML = Math.round(response.data.main.temp_max);
+  MinElement.innerHTML = Math.round(response.data.main.temp_min);
 
 }
 
@@ -118,7 +117,7 @@ function handleSubmit(event) {
   event.preventDefault();
 
   let city = document.querySelector("#Search-City").value;
-  let apiKey = "746b6a26dadd45390800e5861cc58856";
+  let apiKey = "746b6a26dadd45390800e5861cc58856"; 
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(showWeather);
