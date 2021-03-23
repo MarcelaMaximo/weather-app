@@ -70,11 +70,6 @@ i {
   line-height: 2;
 }
 
-.celsius-left {
-  font-size: 37px;
-  width: max-content;
-}
-
 .extra-left {
   font-size: 16px;
 }
@@ -114,4 +109,7 @@ i {
 .bar {
   font-size: 18px;
   color: white;
+}
+.temp {
+  font-size: 23.5px;
 }
