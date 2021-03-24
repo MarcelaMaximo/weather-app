@@ -34,6 +34,8 @@ h4 {
 }
 a {
   text-decoration: none;
+  font-size: 18px;
+  color: white;
 }
 img {
   height: 70px;
@@ -105,11 +107,7 @@ i {
   height: 20px;
   width: 20px;
 }
-.unit,
-.bar {
-  font-size: 18px;
-  color: white;
-}
+
 .temp {
   font-size: 23.5px;
 }
