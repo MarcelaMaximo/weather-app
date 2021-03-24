@@ -55,26 +55,7 @@ function Time() {
 }
 Time();
 
-//temperature
 
-function convertC(event) {
-  event.preventDefault();
-  let tempC = document.querySelector("#temperature");
-  tempC.innerHTML = 15;
-}
-
-let celsius = document.querySelector("#c-link");
-celsius.addEventListener("click", convertC);
-
-function convertF(event) {
-  event.preventDefault();
-  let tempF = document.querySelector("#temperature");
-  let temperatureF = tempF.innerHTML;
-  tempF.innerHTML = Math.round(temperatureF * 9) / 5 + 32;
-}
-
-let fahrenheit = document.querySelector("#f-link");
-fahrenheit.addEventListener("click", convertF);
 
 //city at h1
 let h1 = document.querySelector("#city");
@@ -103,8 +84,10 @@ function showWeather(response) {
   let MinElement = document.querySelector("#Min");
   let iconElement = document.querySelector("#icon");
 
+  celsiusTemperature=response.data.main.temp; 
+
   countryElement.innerHTML= (response.data.sys.country);
-  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
   cityElement.innerHTML = `${response.data.name},`;
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
@@ -127,9 +110,6 @@ function handleSubmit(event) {
   axios.get(apiUrl).then(showWeather);
 }
 
-let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", handleSubmit);
-
 function CurrentPosition(position) {
   let apiKey = "746b6a26dadd45390800e5861cc58856";
   let lat = position.coords.latitude;
@@ -143,5 +123,35 @@ function GetCurrentPosition() {
   navigator.geolocation.getCurrentPosition(CurrentPosition);
 }
 
+
+
 let locationButton = document.querySelector("#CurrentButton");
 locationButton.addEventListener("click", GetCurrentPosition);
+
+//temperature
+
+function convertF(event) {
+  event.preventDefault();
+  let temperatureElement= document.querySelector("#temperature");
+  let fahrenheitemperature = (celsiusTemperature* 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitemperature);
+}
+
+function convertC(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let fahrenheit = document.querySelector("#f-link");
+fahrenheit.addEventListener("click", convertF);
+
+let celsius = document.querySelector("#c-link");
+celsius.addEventListener("click", convertC);
+
+
+
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", handleSubmit);
+
+let celsiusTemperature = null;
