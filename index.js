@@ -74,7 +74,7 @@ CitySearch.addEventListener("submit", Country);
 
 function showWeather(response) {
 
-  console.log(response.data);
+  
   let countryElement = document.querySelector("#country");
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
@@ -99,6 +99,28 @@ function showWeather(response) {
   );
 
 }
+function displayForecast (response) {
+  console.log(response.data);
+  
+   let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = `
+      <div class="day">
+        Tomorrow
+      </div>
+      <div class="dayMonth">
+        3 Fev
+      </div>
+      <div class="celsius">
+        <span class="emoji-right">🌨️</span>
+        -3 °C
+        <span class="fahrenheit-right">
+        | °F
+        </span>
+        </div>
+    `;
+
+  }
+
 
 function handleSubmit(event) {
   event.preventDefault();
@@ -108,6 +130,9 @@ function handleSubmit(event) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(showWeather);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function CurrentPosition(position) {
