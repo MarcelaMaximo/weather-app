@@ -1,5 +1,5 @@
 body {
-  margin: 5px;
+  margin: 15px;
 }
 form {
   text-align: center;
@@ -47,12 +47,9 @@ i {
   overflow: hidden;
   background-color: #0093e9;
   background-image: linear-gradient(180deg, #0093e9 0%, #80d0c7 100%);
-  width: fit-content;
   border-radius: 6%;
-}
-.city,
-.comma {
-  font-size: 25px;
+  max-width: 34%;
+  margin: 30px auto;
 }
 .city::first-letter {
   text-transform: capitalize;
@@ -63,6 +60,7 @@ i {
 }
 .list-group-item {
   background-color: transparent;
+  line-height: 1.6;
 }
 .card-left {
   text-align: center;
@@ -72,13 +70,6 @@ i {
   line-height: 2;
 }
 
-.extra-left {
-  font-size: 16px;
-}
-.fahrenheit-left {
-  opacity: 0.5;
-  font-size: 37px;
-}
 .card-right {
   text-align: center;
   font-family: "Nunito", sans-serif;
@@ -86,17 +77,10 @@ i {
   width: fit-content;
   margin: auto;
 }
-.fahrenheit-right {
-  opacity: 0.7;
-  font-size: 15px;
-}
 .day,
 .emoji-right {
   font-size: 20px;
   font-weight: bold;
-}
-.dayMonth {
-  font-size: 15px;
 }
 .codedBy {
   text-align: center;

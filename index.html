@@ -19,6 +19,7 @@
 
 <body>
   <div class="container">
+    <div class="weather-container">
     <form id="search-form">
       <input type="text" placeholder="Enter a city" id="Search-City" />
       <input type="submit" value="🔍" class="btn btn-outline-info btn-lg" />
@@ -68,78 +69,14 @@
               <div class="dayMonth">
                 3 Fev
               </div>
-              <div class="celsius">
-                <span class="emoji-right">🌨️</span>
-                -3 °C
-                <span class="fahrenheit-right">
-                  | °F
+              <span><i class="fas fa-arrow-up">  </i><span  class="MaxForecast" id="MaxForecast"> 7</span>°C </span>
+              <span><i class="fas fa-arrow-down"> </i><span class="MinForecast" id="MinForecast"> 9</span>°C</span>
                 </span>
               </div>
             </li>
-            <li class="list-group-item">
-              <div class="day">
-                Thur
-              </div>
-              <div class="dayMonth">
-                4 Fev
-              </div>
-              <div class="celsius">
-                <span class="emoji-right">🌧️</span>
-                3 °C
-                <span class="fahrenheit-right">
-                  | °F
-                </span>
-              </div>
-            </li>
-            <li class="list-group-item">
-              <div class="day">
-                Fri
-              </div>
-              <div class="dayMonth">
-                5 Fev
-              </div>
-              <div class="celsius">
-                <span class="emoji-right">🌧️</span>
-                10 °C
-                <span class="fahrenheit-right">
-                  | °F
-                </span>
-              </div>
-            </li>
-            <li class="list-group-item">
-              <div class="day">
-                Sat
-              </div>
-              <div class="dayMonth">
-                6 Fev
-              </div>
-              <div class="celsius">
-                <span class="emoji-right">🌤️</span>
-                22 °C
-                <span class="fahrenheit-right">
-                  | °F
-                </span>
-              </div>
-            </li>
-            <li class="list-group-item">
-              <div class="day">
-                Sun
-              </div>
-              <div class="dayMonth">
-                7 Fev
-              </div>
-              <div class="celsius">
-                <span class="emoji-right">🌧️</span>
-                6 °C
-                <span class="fahrenheit-right">
-                  | °F
-                </span>
-              </div>
-            </li>
-          </ul>
+           </ul>
         </div>
-      </div>
-      </div>
+      </div>      
     <footer class="codedBy">
       <a class="link" href="https://github.com/MarcelaMaximo/weather-app">Open-source code 
       </a> 
@@ -147,6 +84,7 @@
         by Marcela Máximo
       </span>
     </footer>
+    </div>
   </div>
   </div>
   <script src="index.js"></script>
