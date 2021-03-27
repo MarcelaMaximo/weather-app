@@ -117,28 +117,32 @@ function displayForecast (response) {
   console.log(response.data.list[0]);
   
   let forecastElement = document.querySelector("#forecast");
-  let forecast= response.data.list[0];
-  console.log(forecast);
+  let forecast= null;
+ 
+  for (let index = 0; index < 6; index++) {
 
-  forecastElement.innerHTML = `
-    <div class="day">
-      ${formatHours(forecast.dt * 1000)}
-    </div>
-    <div class="img">
-    <img
-    class="leftImg";
-      src="http://openweathermap.org/img/wn/${
-        forecast.weather[0].icon
-      }@2x.png"
-    />
-    </div>
-    <span>
-    <i class="fas fa-arrow-up"> </i>${Math.round(forecast.main.temp_max)}°C 
-    <i class="fas fa-arrow-down"> </i>${Math.round(forecast.main.temp_min)}°C
-    </span>    
+    forecast= response.data.list[index];
+     forecastElement.innerHTML += `
+    <div class="col align-self-center">
+      <div class="day">
+        ${formatHours(forecast.dt * 1000)}
+      </div>
+      <div class="img">
+      <img
+      class="leftImg";
+        src="http://openweathermap.org/img/wn/${
+          forecast.weather[0].icon
+        }@2x.png"
+      />
+      </div>
+      <span>
+      <i class="fas fa-arrow-up"> </i>${Math.round(forecast.main.temp_max)}°C 
+      <i class="fas fa-arrow-down"> </i>${Math.round(forecast.main.temp_min)}°C
+      </span>    
+      </div>
     </div>
     `;
-
+  }
   }
 
 
@@ -200,3 +204,5 @@ let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
 
 let celsiusTemperature = null;
+
+handleSubmit("Lisbon");

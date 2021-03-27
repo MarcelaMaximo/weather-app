@@ -59,6 +59,7 @@ i {
 .list-group-item {
   background-color: transparent;
   line-height: 1.6;
+  border: none;
 }
 .card-left {
   text-align: center;
@@ -77,7 +78,7 @@ i {
 }
 .day,
 .emoji-right {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
 }
 .codedBy {
@@ -96,4 +97,8 @@ i {
 .leftImg {
   height: 48px;
   width: 48px;
+}
+.align-self-center {
+  border-style: hidden;
+  border-top: 1.5px solid rgba(0, 0, 0, 0.125);
 }
