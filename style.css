@@ -95,10 +95,13 @@ i {
   font-size: 23.5px;
 }
 .leftImg {
-  height: 48px;
-  width: 48px;
+  height: 40px;
+  width: 40px;
 }
 .align-self-center {
   border-style: hidden;
-  border-top: 1.5px solid rgba(0, 0, 0, 0.125);
+  border-bottom: 1.5px solid rgba(0, 0, 0, 0.125);
+}
+.left-temp {
+  font-size: 13px;
 }

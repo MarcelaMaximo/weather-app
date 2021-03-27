@@ -71,23 +71,10 @@ function formatHours(timestamp) {
   return `${hours}:${minutes}`;
 }
 
-//city at h1
-let h1 = document.querySelector("#city");
-
-function Country(event) {
-  event.preventDefault();
-  let SearchCity = document.querySelector("#Search-City");
-  h1.innerHTML = `${SearchCity.value}`;
-}
-
-let CitySearch = document.querySelector("#search-form");
-CitySearch.addEventListener("submit", Country);
-
 
 //location
 
-function showWeather(response) {
-
+function displayTemperature(response) {
   
   let countryElement = document.querySelector("#country");
   let temperatureElement = document.querySelector("#temperature");
@@ -114,95 +101,76 @@ function showWeather(response) {
 
 }
 function displayForecast (response) {
-  console.log(response.data.list[0]);
   
   let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = null;
   let forecast= null;
  
   for (let index = 0; index < 6; index++) {
 
     forecast= response.data.list[index];
-     forecastElement.innerHTML += `
-    <div class="col align-self-center">
-      <div class="day">
-        ${formatHours(forecast.dt * 1000)}
+    forecastElement.innerHTML += `
+      <div class="col align-self-center">
+        <div class="day">
+          ${formatHours(forecast.dt * 1000)}
+        </div>
+        <div class="img">
+        <img
+        class="leftImg";
+          src="http://openweathermap.org/img/wn/${
+            forecast.weather[0].icon
+          }@2x.png"
+        />
+        </div>
+        <span class="left-temp">
+        <i class="fas fa-arrow-up"> </i>${Math.round(forecast.main.temp_max)}°C 
+        <i class="fas fa-arrow-down"> </i>${Math.round(forecast.main.temp_min)}°C
+        </span>    
+        </div>
       </div>
-      <div class="img">
-      <img
-      class="leftImg";
-        src="http://openweathermap.org/img/wn/${
-          forecast.weather[0].icon
-        }@2x.png"
-      />
-      </div>
-      <span>
-      <i class="fas fa-arrow-up"> </i>${Math.round(forecast.main.temp_max)}°C 
-      <i class="fas fa-arrow-down"> </i>${Math.round(forecast.main.temp_min)}°C
-      </span>    
-      </div>
-    </div>
-    `;
+  `;
   }
   }
 
-
-function handleSubmit(event) {
-  event.preventDefault();
-
-  let city = document.querySelector("#Search-City").value;
-  let apiKey = "746b6a26dadd45390800e5861cc58856"; 
+function search(city) {
+  let apiKey = "746b6a26dadd45390800e5861cc58856";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
-  axios.get(apiUrl).then(showWeather);
+  axios.get(apiUrl).then(displayTemperature);
 
   apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }
 
-function CurrentPosition(position) {
-  let apiKey = "746b6a26dadd45390800e5861cc58856";
-  let lat = position.coords.latitude;
-  let lon = position.coords.longitude;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
-
-  axios.get(apiUrl).then(showWeather);
-}
-
-function GetCurrentPosition() {
-  navigator.geolocation.getCurrentPosition(CurrentPosition);
-}
-
-
-
-let locationButton = document.querySelector("#CurrentButton");
-locationButton.addEventListener("click", GetCurrentPosition);
-
-//temperature
-
-function convertF(event) {
+function handleSubmit(event) {
   event.preventDefault();
-  let temperatureElement= document.querySelector("#temperature");
-  let fahrenheitemperature = (celsiusTemperature* 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(fahrenheitemperature);
+  let cityInputElement = document.querySelector("#Search-City");
+  search(cityInputElement.value);
 }
 
-function convertC(event) {
+function displayFahrenheitTemperature(event) {
   event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+
+  let fahrenheiTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheiTemperature);
+}
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
-let fahrenheit = document.querySelector("#f-link");
-fahrenheit.addEventListener("click", convertF);
-
-let celsius = document.querySelector("#c-link");
-celsius.addEventListener("click", convertC);
-
-
-
-let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", handleSubmit);
-
 let celsiusTemperature = null;
 
-handleSubmit("Lisbon");
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
+
+let fahrenheitLink = document.querySelector("#f-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#c-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+search("Lisbon");
