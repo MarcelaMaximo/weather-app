@@ -1,4 +1,5 @@
 //time
+
 let now = new Date();
 
 let h2 = document.querySelector("h2");
@@ -56,6 +57,19 @@ function Time() {
 Time();
 
 
+function formatHours(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  return `${hours}:${minutes}`;
+}
 
 //city at h1
 let h1 = document.querySelector("#city");
@@ -100,23 +114,29 @@ function showWeather(response) {
 
 }
 function displayForecast (response) {
-  console.log(response.data);
+  console.log(response.data.list[0]);
   
-   let forecastElement = document.querySelector("#forecast");
+  let forecastElement = document.querySelector("#forecast");
+  let forecast= response.data.list[0];
+  console.log(forecast);
+
   forecastElement.innerHTML = `
-      <div class="day">
-        Tomorrow
-      </div>
-      <div class="dayMonth">
-        3 Fev
-      </div>
-      <div class="celsius">
-        <span class="emoji-right">🌨️</span>
-        -3 °C
-        <span class="fahrenheit-right">
-        | °F
-        </span>
-        </div>
+    <div class="day">
+      ${formatHours(forecast.dt * 1000)}
+    </div>
+    <div class="img">
+    <img
+    class="leftImg";
+      src="http://openweathermap.org/img/wn/${
+        forecast.weather[0].icon
+      }@2x.png"
+    />
+    </div>
+    <span>
+    <i class="fas fa-arrow-up"> </i>${Math.round(forecast.main.temp_max)}°C 
+    <i class="fas fa-arrow-down"> </i>${Math.round(forecast.main.temp_min)}°C
+    </span>    
+    </div>
     `;
 
   }
