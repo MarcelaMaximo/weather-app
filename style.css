@@ -105,3 +105,12 @@ i {
 .left-temp {
   font-size: 13px;
 }
+.fa-arrow-up {
+  color: #d5901c;
+}
+.fa-arrow-down {
+  color: mediumblue;
+}
+.justify-content-center {
+  color: black;
+}

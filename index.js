@@ -92,8 +92,8 @@ function displayTemperature(response) {
   cityElement.innerHTML = `${response.data.name},`;
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
-  MaxElement.innerHTML = Math.round(response.data.main.temp_max);
-  MinElement.innerHTML = Math.round(response.data.main.temp_min);
+  MaxElement.innerHTML =  Math.round(response.data.main.temp_max);
+  MinElement.innerHTML =  Math.round(response.data.main.temp_min);
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
