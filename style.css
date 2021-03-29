@@ -114,3 +114,7 @@ i {
 .justify-content-center {
   color: black;
 }
+img,
+svg {
+  width: 80px;
+}
